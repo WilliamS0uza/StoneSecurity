@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook de Segurança & Prevenção a Fraudes | Guia do Empreendedor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#F0FDF6',
+                            100: '#DCFCE9',
+                            200: '#BBF7D2',
+                            300: '#86EFB0',
+                            400: '#4ADE8A',
+                            500: '#00A868', /* Verde Stone Clássico */
+                            600: '#008552',
+                            700: '#00663F',
+                            800: '#0B3B26',
+                            900: '#072417',
+                            950: '#03140C',
+                        },
+                        stoneNeon: '#00FF9D',
+                        darkGreen: '#051A10',
+                        emeraldDark: '#0A2B1D',
+                        surfaceDark: '#0E3625'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #051A10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #008552;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00A868;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.2);
+        }
+        .card-hover {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -10px rgba(0, 168, 104, 0.25);
+            border-color: rgba(0, 255, 157, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-stone-500 selection:text-white min-h-screen flex flex-col relative">
+
+    <!-- Floating WhatsApp Specialist Widget -->
+    <aside class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group">
+        <div class="hidden md:flex items-center gap-2 bg-stone-900/95 border border-stone-500/50 text-white text-xs px-3.5 py-2 rounded-2xl shadow-2xl backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pointer-events-none">
+            <span class="w-2 h-2 rounded-full bg-stoneNeon animate-pulse"></span>
+            <span>Suspeita de golpe? Tire sua dúvida no WhatsApp agora</span>
+        </div>
+        <a href="https://wa.me/5591984373797?text=Ol%C3%A1!%20Acessei%20o%20Playbook%20de%20Seguran%C3%A7a%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20sobre%20prote%C3%A7%C3%A3o%20e%20preven%C3%A7%C3%A3o%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer" class="bg-gradient-to-tr from-emerald-600 to-stone-500 hover:from-emerald-500 hover:to-stone-400 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full sm:rounded-2xl shadow-2xl shadow-stone-500/40 flex items-center gap-3 transition-all duration-300 transform hover:scale-105 active:scale-95 border border-stoneNeon/40" title="Falar com o Especialista">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <div class="hidden sm:block text-left">
+                <p class="text-[10px] uppercase font-bold text-stone-200 leading-tight">Plantão de Segurança</p>
+                <p class="text-xs font-black text-white">Chamar Especialista</p>
+            </div>
+        </a>
+    </aside>
+
+    <!-- Top Emergency Banner -->
+    <div class="bg-gradient-to-r from-red-950 via-red-900 to-red-950 border-b border-red-800 text-red-100 text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2 font-medium">
+                <span class="inline-flex h-2 w-2 rounded-full bg-red-400 animate-ping"></span>
+                <i class="fa-solid fa-triangle-exclamation text-red-400"></i>
+                <span><strong>Aviso Universal de Segurança:</strong> Nenhuma instituição financeira liga solicitando senhas, códigos de token ou instalação de aplicativos de acesso remoto (AnyDesk/TeamViewer).</span>
+            </div>
+            <button onclick="openModal('emergencyModal')" class="underline hover:text-white font-bold ml-auto flex items-center gap-1 cursor-pointer">
+                <span>Suspeita de invasão agora? Veja o plano SOS</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-darkGreen/90 backdrop-blur-md border-b border-stone-800/80 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Specialist Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-stone-400 to-stone-600 flex items-center justify-center shadow-lg shadow-stone-500/20">
+                        <i class="fa-solid fa-shield-halved text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-black tracking-tight text-white">stone</span>
+                            <span class="bg-stone-500/20 text-stoneNeon text-[10px] font-extrabold uppercase px-2 py-0.5 rounded border border-stone-500/30">Segurança do Empreendedor</span>
+                        </div>
+                        <p class="text-[11px] text-gray-400 font-medium">Guia Prático e Aberto de Blindagem Comercial</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+                    <a href="#pilares" class="px-3 py-2 text-xs xl:text-sm font-semibold text-gray-300 hover:text-stone-300 hover:bg-emeraldDark/60 rounded-lg transition-colors">4 Pilares</a>
+                    <a href="#golpes" class="px-3 py-2 text-xs xl:text-sm font-semibold text-gray-300 hover:text-stone-300 hover:bg-emeraldDark/60 rounded-lg transition-colors">Catálogo de Golpes</a>
+                    <a href="#simulador" class="px-3 py-2 text-xs xl:text-sm font-semibold text-gray-300 hover:text-stone-300 hover:bg-emeraldDark/60 rounded-lg transition-colors flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-stoneNeon"></span>
+                        Simulador
+                    </a>
+                    <a href="#checklist" class="px-3 py-2 text-xs xl:text-sm font-semibold text-gray-300 hover:text-stone-300 hover:bg-emeraldDark/60 rounded-lg transition-colors">Auditoria de Loja</a>
+                    <a href="#mandamentos" class="px-3 py-2 text-xs xl:text-sm font-semibold text-gray-300 hover:text-stone-300 hover:bg-emeraldDark/60 rounded-lg transition-colors">Regras Universais</a>
+                </nav>
+
+                <!-- Action Button & Contact -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="https://wa.me/5591984373797?text=Ol%C3%A1!%20Acessei%20o%20Playbook%20de%20Seguran%C3%A7a%20e%20gostaria%20de%20falar%20com%20o%20Especialista." target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-700/80 px-3.5 py-2 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-brands fa-whatsapp text-stoneNeon text-base"></i>
+                        <span>Falar com o Especialista</span>
+                    </a>
+                    <button onclick="openModal('emergencyModal')" class="bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-lg shadow-red-600/30 flex items-center gap-2 transition-all transform active:scale-95">
+                        <i class="fa-solid fa-phone-volume animate-bounce"></i>
+                        <span>SOS Fraude</span>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden text-gray-300 hover:text-white p-2 text-xl" aria-label="Abrir Menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-darkGreen border-b border-stone-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#pilares" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-stone-800">4 Pilares da Proteção</a>
+            <a href="#golpes" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-stone-800">Catálogo Geral de Golpes</a>
+            <a href="#simulador" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-stone-800">Simulador de Ameaças</a>
+            <a href="#checklist" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-stone-800">Auditoria & Checklist do Caixa</a>
+            <a href="#mandamentos" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-stone-800">Regras Universais de Ouro</a>
+            <a href="https://wa.me/5591984373797?text=Ol%C3%A1!%20Gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20de%20seguran%C3%A7a%20para%20o%20meu%20com%C3%A9rcio." target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-lg text-base font-bold text-stoneNeon bg-stone-900 border border-stone-700 text-center">
+                <i class="fa-brands fa-whatsapp mr-1 text-lg"></i> Falar com o Especialista via WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-darkGreen via-stone-950 to-gray-950 border-b border-stone-800/60 overflow-hidden py-14 sm:py-20">
+        <!-- Abstract Glows -->
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[380px] bg-stone-500/15 blur-[130px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/2 right-10 w-96 h-96 bg-stoneNeon/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-stone-900/90 border border-stone-500/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-stone-300">
+                        <i class="fa-solid fa-user-shield text-stoneNeon"></i>
+                        <span>Manual Criado por Especialistas e Agentes de Negócios</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+                        Como proteger o caixa da sua empresa contra <span class="text-transparent bg-clip-text bg-gradient-to-r from-stone-400 via-stoneNeon to-stone-200">fraudes, golpes e invasões.</span>
+                    </h1>
+                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        O negócio que você construiu com tanto suor não pode ser vulnerável a criminosos digitais. Nossos especialistas sintetizaram as <strong>melhores práticas universais de segurança financeira</strong> para nortear qualquer empreendedor do Brasil — seja você nosso parceiro hoje ou no futuro.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://wa.me/5591984373797?text=Ol%C3%A1!%20Acessei%20o%20Playbook%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20para%20blindar%20minha%20empresa." target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-stone-500 to-emerald-600 hover:from-stone-400 hover:to-emerald-500 text-gray-950 font-black text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-lg shadow-stone-500/25 flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Falar com o Especialista no WhatsApp</span>
+                        </a>
+                        <a href="#simulador" class="bg-surfaceDark hover:bg-emeraldDark text-white border border-stone-700 font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl flex items-center gap-2 transition-all">
+                            <i class="fa-solid fa-gamepad text-stoneNeon"></i>
+                            <span>Testar Meus Reflexos</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust and stats indicators -->
+                    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-stone-800/80 text-left">
+                        <div class="bg-stone-900/50 p-3 rounded-2xl border border-stone-800">
+                            <p class="text-xs text-gray-400 font-medium">Engenharia Social</p>
+                            <p class="text-sm font-extrabold text-white"><span class="text-stoneNeon">90%+</span> dos golpes exploram o atendente</p>
+                        </div>
+                        <div class="bg-stone-900/50 p-3 rounded-2xl border border-stone-800">
+                            <p class="text-xs text-gray-400 font-medium">Prevenção Real</p>
+                            <p class="text-sm font-extrabold text-white">Treinamento rápido de 10 min para sua equipe</p>
+                        </div>
+                        <div class="bg-stone-900/50 p-3 rounded-2xl border border-stone-800">
+                            <p class="text-xs text-gray-400 font-medium">Apoio Dedicado</p>
+                            <p class="text-sm font-extrabold text-white">Agente disponível para tirar suas dúvidas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Hero Radar Widget -->
+                <div class="lg:col-span-5">
+                    <div class="bg-gradient-to-b from-surfaceDark/95 to-darkGreen/95 p-6 sm:p-8 rounded-3xl border border-stone-600/40 shadow-2xl backdrop-blur-md relative">
+                        <div class="flex items-center justify-between border-b border-stone-800 pb-4 mb-6">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-stoneNeon"></span>
+                            </div>
+                            <span class="text-xs font-mono text-stone-400 uppercase tracking-widest font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-radar text-stoneNeon animate-spin"></i> Radar de Vulnerabilidades
+                            </span>
+                        </div>
+
+                        <div class="space-y-3.5">
+                            <!-- Threat Feed 1 -->
+                            <div class="bg-black/50 p-3.5 rounded-2xl border border-red-900/50 flex items-start gap-3">
+                                <div class="p-2 bg-red-500/10 text-red-400 rounded-xl text-base shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-phone-slash"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <h4 class="font-bold text-white">Vishing: Falso Suporte Telefônico</h4>
+                                    <p class="text-gray-400 mt-0.5">Golpistas simulam o número oficial de bancos via VoIP para fazer você instalar programas como <strong>AnyDesk/RustDesk</strong>. O certo é: desligar imediatamente!</p>
+                                </div>
+                            </div>
+
+                            <!-- Threat Feed 2 -->
+                            <div class="bg-black/50 p-3.5 rounded-2xl border border-yellow-800/40 flex items-start gap-3">
+                                <div class="p-2 bg-yellow-500/10 text-yellow-400 rounded-xl text-base shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-handshake-slash"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <h4 class="font-bold text-white">Falso Técnico Presencial na Loja</h4>
+                                    <p class="text-gray-400 mt-0.5">Criminosos com uniforme falso dizem que vão atualizar a máquina POS. O certo é: <strong>nunca entregar o terminal sem chamado oficial confirmado</strong>.</p>
+                                </div>
+                            </div>
+
+                            <!-- Threat Feed 3 -->
+                            <div class="bg-black/50 p-3.5 rounded-2xl border border-stone-700/50 flex items-start gap-3">
+                                <div class="p-2 bg-stone-500/20 text-stoneNeon rounded-xl text-base shrink-0 mt-0.5">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <h4 class="font-bold text-white">Canal de Apoio com o Especialista</h4>
+                                    <p class="text-gray-400 mt-0.5">Na dúvida com qualquer mensagem estranha ou ligação suspeita, consulte diretamente o <strong>canal de orientação do seu Especialista</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-stone-800/80 flex items-center justify-between text-xs text-gray-400">
+                            <span>Status: <strong class="text-stoneNeon">Guia Aberto & Ativo</strong></span>
+                            <span class="text-stone-300 font-semibold"><i class="fa-solid fa-shield-check text-stoneNeon mr-1"></i> Proteção 360°</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24 w-full">
+
+        <!-- Section: 4 Pillars of Merchant Defense -->
+        <section id="pilares" class="scroll-mt-24 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-stone-400 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                    Fundamentos de Blindagem
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white">Os 4 Pilares da Segurança no Comércio</h2>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Para não cair em golpes, sua empresa precisa fortalecer quatro frentes simultaneamente. A falha em apenas uma delas é o que abre a porta para os criminosos.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pillar 1 -->
+                <div class="bg-stone-900/60 p-6 rounded-2xl border border-stone-800 space-y-3 card-hover">
+                    <div class="w-12 h-12 rounded-xl bg-stone-500/10 text-stoneNeon flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">1. Proteção Física</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Manter terminais POS sob constante vigília visual do caixa, inspecionar diariamente placas estáticas de Pix e catalogar os números de série de todos os equipamentos da loja.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-stone-900/60 p-6 rounded-2xl border border-stone-800 space-y-3 card-hover">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">2. Higiene Digital</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Ativação obrigatória de duplo fator (2FA), proibição de programas de acesso remoto, senhas fortes e acesso a portais bancários somente por links digitados manualmente.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-stone-900/60 p-6 rounded-2xl border border-stone-800 space-y-3 card-hover">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">3. Processos de Caixa</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Nunca liberar produtos por prints ou comprovantes de agendamento de Pix. Auditar o CNPJ do Beneficiário Final antes de pagar qualquer boleto de fornecedor.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="bg-stone-900/60 p-6 rounded-2xl border border-stone-800 space-y-3 card-hover">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">4. Treinamento da Equipe</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Conscientizar todo funcionário que atende ao público. O elo humano é o alvo favorito dos golpistas: uma equipe bem treinada reage rápido e salva a empresa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Anatomy of Fraud (Interactive Catalog Expanded) -->
+        <section id="golpes" class="scroll-mt-24 space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-stone-800 pb-6">
+                <div>
+                    <span class="text-stone-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-book-skull"></i>
+                        Enciclopédia de Ameaças
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">Os Principais Golpes Aplicados no Comércio</h2>
+                    <p class="text-gray-400 text-sm sm:text-base mt-2 max-w-2xl">
+                        Conheça em detalhes como os criminosos operam e qual é a <strong>conduta correta a se tomar</strong> para neutralizar cada ataque.
+                    </p>
+                </div>
+
+                <!-- Filter Pills -->
+                <div class="flex flex-wrap gap-2" id="threatFilters">
+                    <button onclick="filterThreats('all')" class="filter-btn active bg-stone-600 text-white font-bold text-xs px-3.5 py-2 rounded-xl border border-stone-500 transition-all">Todos (9)</button>
+                    <button onclick="filterThreats('balcao')" class="filter-btn bg-stone-900/80 text-gray-300 hover:text-white font-semibold text-xs px-3.5 py-2 rounded-xl border border-stone-800 transition-all">Balcão & Máquinas</button>
+                    <button onclick="filterThreats('engenharia')" class="filter-btn bg-stone-900/80 text-gray-300 hover:text-white font-semibold text-xs px-3.5 py-2 rounded-xl border border-stone-800 transition-all">Engenharia Social / Fone</button>
+                    <button onclick="filterThreats('pix')" class="filter-btn bg-stone-900/80 text-gray-300 hover:text-white font-semibold text-xs px-3.5 py-2 rounded-xl border border-stone-800 transition-all">Pix & Boletos</button>
+                    <button onclick="filterThreats('digital')" class="filter-btn bg-stone-900/80 text-gray-300 hover:text-white font-semibold text-xs px-3.5 py-2 rounded-xl border border-stone-800 transition-all">Digital & WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Threat Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="threatsGrid">
+
+                <!-- Card 1: Falso Suporte & Acesso Remoto (AnyDesk) -->
+                <div class="threat-card engenharia bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Crítico / Urgente</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-solid fa-phone mr-1"></i> Vishing Telefônico</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-red-400 text-2xl">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Falsa Central & Acesso Remoto</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            O criminoso liga com som de call center fingindo ser do departamento de segurança ou suporte técnico. Ele inventa uma compra duplicada ou invasão imaginária e induz você a instalar softwares como <strong>AnyDesk, RustDesk ou TeamViewer</strong>.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li><strong>Desligue imediatamente a chamada.</strong> Nenhuma instituição solicita controle remoto do seu aparelho.</li>
+                                <li>Entre em contato direto pelo telefone do verso do cartão ou com seu agente de confiança.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-red-400 font-semibold"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Risco de Esvaziamento</span>
+                        <button onclick="showThreatDetail('falso_suporte')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Troca de Maquininha (Swap) -->
+                <div class="threat-card balcao bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Prejuízo Imediato</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-solid fa-store mr-1"></i> Balcão de Loja</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-yellow-400 text-2xl">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Golpe da Troca de Maquininha</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            Um comparsa distrai o atendente do caixa enquanto outro substitui a maquininha do estabelecimento por outra visualmente idêntica, mas vinculada à conta do fraudador. O dinheiro das vendas passa a cair diretamente para a quadrilha.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li>Fixe adesivos internos de segurança ou lacres em cada máquina.</li>
+                                <li>Confira se a Razão Social da sua empresa aparece no visor antes de qualquer transação.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-yellow-400 font-semibold"><i class="fa-solid fa-eye mr-1"></i> Falha de Vigilância</span>
+                        <button onclick="showThreatDetail('troca_maquininha')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Falso Técnico de Manutenção Presencial -->
+                <div class="threat-card balcao engenharia bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Fraude Presencial</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-solid fa-user-gear mr-1"></i> Falso Prestador</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-stoneNeon text-2xl">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Falso Técnico / Falso Agente</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            Uma pessoa chega à sua loja uniformizada alegando ser técnico da adquirente para "recolher a máquina antiga para troca preventiva" ou "atualizar a antena 5G". Na verdade, ela está roubando o equipamento original.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li><strong>Nunca entregue o equipamento sem chamado agendado previamente por você.</strong></li>
+                                <li>Acione imediatamente o canal do seu Especialista para validar a identidade do visitante.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-red-400 font-semibold"><i class="fa-solid fa-ban mr-1"></i> Não Entregue Nada</span>
+                        <button onclick="showThreatDetail('falso_tecnico')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 4: Boleto Forjado / Interceptação de Fornecedores -->
+                <div class="threat-card pix bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Alto Valor</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-solid fa-barcode mr-1"></i> Faturas & PDF</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-emerald-400 text-2xl">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Boleto Adulterado de Fornecedor</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            Fraude em que criminosos interceptam trocas de e-mails ou emitem segundas vias de boletos adulterando o código de barras ou a chave Pix. O pagamento acaba creditado na conta de um "laranja" em vez do fornecedor real.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li>Na tela de confirmação do banco, <strong>leia o CNPJ e a Razão Social do Beneficiário Final</strong> antes de autorizar.</li>
+                                <li>Utilize o DDA (Débito Direto Autorizado) eletrônico em vez de abrir PDFs anexados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-red-400 font-semibold"><i class="fa-solid fa-magnifying-glass-dollar mr-1"></i> Checagem de CNPJ</span>
+                        <button onclick="showThreatDetail('boleto_adulterado')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 5: Golpe do QR Code Pix Colado / Adulterado -->
+                <div class="threat-card balcao pix bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Crescente</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-solid fa-qrcode mr-1"></i> Balcão Físico</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-purple-400 text-2xl">
+                            <i class="fa-solid fa-qrcode"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">QR Code Físico Adulterado</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            Adesivos impressos com o QR Code Pix do criminoso são colados milimetricamente sobre o display de acrílico da sua loja. O cliente paga acreditando ser seu estabelecimento, mas o dinheiro vai para terceiros.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li>Gere preferencialmente o <strong>QR Code Pix Dinâmico na tela da Maquininha</strong>.</li>
+                                <li>Inspecione fisicamente suas placas estáticas no início de cada turno de trabalho.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-yellow-400 font-semibold"><i class="fa-solid fa-tag mr-1"></i> Verificação de Display</span>
+                        <button onclick="showThreatDetail('qr_code_adulterado')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 6: Golpe do Pix Agendado / Comprovante Falso -->
+                <div class="threat-card pix bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Diário / Recorrente</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-solid fa-receipt mr-1"></i> Balcão & Delivery</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-pink-400 text-2xl">
+                            <i class="fa-solid fa-file-circle-xmark"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Pix Agendado & Comprovante Falso</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            O comprador exibe um comprovante de agendamento (que cancela logo após sair) ou edita a imagem em aplicativos de celular para pressionar o caixa a liberar o pedido imediatamente.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li><strong>Nunca confie em prints na tela do cliente.</strong></li>
+                                <li>Libere a mercadoria apenas após conferir a notificação push/sonora ou o extrato bancário oficial.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-stone-300 font-semibold"><i class="fa-solid fa-money-bill-transfer mr-1"></i> Regra de Caixa</span>
+                        <button onclick="showThreatDetail('pix_agendado')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 7: Golpe da Mão Fantasma (Malware no Celular) -->
+                <div class="threat-card digital engenharia bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Invasão Severa</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-brands fa-android mr-1"></i> Smartphone / APK</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-indigo-400 text-2xl">
+                            <i class="fa-solid fa-ghost"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Golpe da "Mão Fantasma" (Malware)</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            Ao clicar em links de SMS ou instalar APKs não oficiais, o empresário dá permissão de acessibilidade ao criminoso, que passa a operar a tela do celular remotamente no período noturno para realizar Pix.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li>Instale aplicativos apenas da Google Play ou App Store.</li>
+                                <li>Configure limites de transferência Pix noturno no aplicativo do seu banco.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-red-400 font-semibold"><i class="fa-solid fa-shield-virus mr-1"></i> Bloqueio de APK</span>
+                        <button onclick="showThreatDetail('mao_fantasma')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 8: Sequestro de WhatsApp Comercial -->
+                <div class="threat-card digital engenharia bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Imagem da Empresa</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-brands fa-whatsapp mr-1"></i> Mensagens</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-green-400 text-2xl">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Clonagem e Sequestro de WhatsApp</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            O golpista liga inventando uma confirmação de entrega ou anúncio e solicita um "código de 6 dígitos que chegou por SMS". Esse código é o registro do WhatsApp, que passa para a mão da quadrilha para extorquir seus clientes.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li>Ative a <strong>Confirmação em Duas Etapas com PIN numérico</strong> no WhatsApp Business.</li>
+                                <li>Nunca repasse códigos numéricos recebidos por SMS para ninguém.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-yellow-400 font-semibold"><i class="fa-solid fa-lock mr-1"></i> 2FA Obrigatório</span>
+                        <button onclick="showThreatDetail('whatsapp_clonado')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+                <!-- Card 9: Phishing de Portais Bancários & Links Patrocinados -->
+                <div class="threat-card digital bg-stone-900/60 rounded-2xl border border-stone-800 p-6 flex flex-col justify-between card-hover">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-xs font-bold px-2.5 py-1 rounded-lg">Roubo de Acesso</span>
+                            <span class="text-xs text-gray-400 font-mono"><i class="fa-solid fa-globe mr-1"></i> Navegador</span>
+                        </div>
+                        <div class="w-12 h-12 bg-stone-800/80 rounded-xl flex items-center justify-center text-cyan-400 text-2xl">
+                            <i class="fa-solid fa-fish"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Anúncios Falsos no Google (Phishing)</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                            Criminosos compram links patrocinados no topo dos buscadores com títulos como "Internet Banking Acesso". O site é uma cópia perfeita feita para capturar seu login, senha mestra e token de autorização.
+                        </p>
+                        <div class="bg-black/40 p-3 rounded-xl border border-stone-800 text-xs space-y-1.5">
+                            <p class="font-bold text-stoneNeon"><i class="fa-solid fa-circle-check mr-1"></i> O certo a se fazer:</p>
+                            <ul class="text-gray-300 list-disc list-inside space-y-1">
+                                <li>Nunca clique em links com a etiqueta "Patrocinado/Ad" para acessar bancos.</li>
+                                <li>Digite a URL oficial manualmente e salve nos favoritos do navegador da empresa.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-stone-800/60 flex items-center justify-between text-xs">
+                        <span class="text-red-400 font-semibold"><i class="fa-solid fa-link-slash mr-1"></i> Validação de URL</span>
+                        <button onclick="showThreatDetail('phishing_google')" class="text-stone-400 hover:text-stone-300 font-bold underline">Entenda a fundo &raquo;</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Threat Simulator ("É Fraude ou Conduta Legítima?") -->
+        <section id="simulador" class="scroll-mt-24 bg-gradient-to-br from-emeraldDark/90 via-darkGreen to-stone-950 p-6 sm:p-10 rounded-3xl border border-stone-700/60 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-stone-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Header Simulator -->
+                <div class="text-center space-y-3">
+                    <div class="inline-flex items-center gap-2 bg-stoneNeon/10 border border-stoneNeon/30 text-stoneNeon px-3.5 py-1 rounded-full text-xs font-bold">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Simulador Interativo de Casos do Cotidiano</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-black text-white">É Golpe ou É Procedimento Real?</h2>
+                    <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto">
+                        Teste os reflexos da sua equipe. Analise os cenários reais do comércio e veja se você sabe identificar as armadilhas digitais.
+                    </p>
+                </div>
+
+                <!-- Game Container -->
+                <div id="gameContainer" class="bg-black/60 rounded-2xl border border-stone-700/80 p-6 sm:p-8 space-y-6">
+                    <!-- Progress Bar & Score -->
+                    <div class="flex items-center justify-between text-xs font-semibold text-gray-400 pb-4 border-b border-stone-800">
+                        <span id="questionCounter">Cenário 1 de 6</span>
+                        <div class="flex items-center gap-2">
+                            <span>Sua Pontuação:</span>
+                            <span id="currentScore" class="text-stoneNeon font-bold text-sm bg-stone-900 px-3 py-1 rounded-lg border border-stone-700">0 pts</span>
+                        </div>
+                    </div>
+
+                    <!-- Scenario Display -->
+                    <div id="scenarioArea" class="space-y-6">
+                        <!-- Loaded dynamically by JavaScript -->
+                    </div>
+
+                    <!-- Decision Buttons -->
+                    <div id="decisionButtons" class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <button onclick="handleAnswer(false)" class="bg-red-950/80 hover:bg-red-900 text-red-200 border border-red-700 font-bold p-4 rounded-xl flex items-center justify-center gap-3 transition-all transform active:scale-98">
+                            <i class="fa-solid fa-triangle-exclamation text-xl text-red-400"></i>
+                            <div class="text-left">
+                                <p class="text-xs uppercase text-red-400 font-extrabold">Opção 1</p>
+                                <p class="text-sm font-bold text-white">É GOLPE / FRAUDE! 🚫</p>
+                            </div>
+                        </button>
+                        <button onclick="handleAnswer(true)" class="bg-stone-950 hover:bg-stone-900 text-stone-200 border border-stone-600 font-bold p-4 rounded-xl flex items-center justify-center gap-3 transition-all transform active:scale-98">
+                            <i class="fa-solid fa-circle-check text-xl text-stoneNeon"></i>
+                            <div class="text-left">
+                                <p class="text-xs uppercase text-stoneNeon font-extrabold">Opção 2</p>
+                                <p class="text-sm font-bold text-white">É SEGURO / LEGÍTIMO ✅</p>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Feedback Area (Hidden by default) -->
+                    <div id="feedbackArea" class="hidden p-5 rounded-xl border space-y-4">
+                        <div id="feedbackHeader" class="flex items-center gap-2 text-lg font-bold"></div>
+                        <p id="feedbackText" class="text-sm text-gray-200 leading-relaxed"></p>
+                        <button onclick="nextScenario()" class="bg-stone-500 hover:bg-stone-400 text-gray-950 font-black text-sm px-6 py-2.5 rounded-xl transition-colors">
+                            Próximo Cenário <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reset / Completed Area (Hidden) -->
+                <div id="gameCompletedArea" class="hidden text-center space-y-6 bg-black/70 p-8 rounded-2xl border border-stone-500">
+                    <div class="w-16 h-16 mx-auto bg-stone-500/20 text-stoneNeon rounded-full flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Treinamento Concluído!</h3>
+                        <p id="finalScoreText" class="text-gray-300 text-sm mt-2"></p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="restartSimulator()" class="bg-stone-500 hover:bg-stone-400 text-gray-950 font-black text-sm px-6 py-3 rounded-xl transition-all">
+                            <i class="fa-solid fa-rotate-right mr-1"></i> Refazer o Teste
+                        </button>
+                        <a href="https://wa.me/5591984373797?text=Finalizei%20o%20simulador%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20seguran%C3%A7a%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer" class="bg-stone-800 hover:bg-stone-700 text-white font-bold text-sm px-6 py-3 rounded-xl border border-stone-600 transition-all flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-stoneNeon"></i> Falar com o Especialista
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Interactive Merchant Security Checklist -->
+        <section id="checklist" class="scroll-mt-24 space-y-8">
+            <div class="border-b border-stone-800 pb-6">
+                <span class="text-stone-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-list-check"></i>
+                    Auditoria Rápida da Loja
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">Checklist de Blindagem do Estabelecimento</h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-2 max-w-2xl">
+                    Marque as rotinas que sua empresa já adota no dia a dia. Seu <strong>Índice de Proteção Comercial</strong> será calculado instantaneamente.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <!-- Checklist items -->
+                <div class="lg:col-span-8 space-y-3.5">
+                    <!-- Item 1 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Identificação visual e catalogação das maquininhas POS</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">As maquininhas ficam sob vigilância contínua do atendente do caixa, com adesivo interno secreto e conferência periódica do número de série.</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 2 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Regra expressa: Proibição de softwares de acesso remoto (AnyDesk)</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">Toda a equipe foi instruída de que nenhum banco ou suporte técnico solicita o download de aplicativos de controle remoto.</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 3 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Validação de compras Pix apenas por extrato/notificação do sistema</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">Nenhum funcionário libera pedidos ou mercadorias com base exclusiva em comprovantes apresentados na tela do celular do cliente.</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 4 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Autenticação em 2 Etapas (2FA) ativa em todos os canais</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">WhatsApp Business com PIN de 6 dígitos ativo, e-mails corporativos e acessos bancários protegidos por gerador de tokens.</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 5 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Conferência obrigatória do Beneficiário Final em Boletos e Pix</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">O responsável financeiro sempre checa a Razão Social e o CNPJ final antes de digitar a senha de autorização de pagamentos.</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 6 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Protocolo rígido para visitas técnicas e trocas de aparelhos</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">Nenhum suposto técnico mexe nas maquininhas ou no sistema sem validação prévia direta com o Agente de Negócios responsável.</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 7 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Inspeção periódica das placas de Pix estáticas</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">Displays de balcão são verificados diariamente para evitar a sobreposição de adesivos falsos com chaves de golpistas.</p>
+                        </div>
+                    </label>
+
+                    <!-- Item 8 -->
+                    <label class="flex items-start gap-4 p-4 rounded-2xl bg-stone-900/50 hover:bg-stone-900/90 border border-stone-800 cursor-pointer transition-colors">
+                        <input type="checkbox" class="checklist-item mt-1 w-5 h-5 rounded text-stone-500 focus:ring-stone-400 accent-stone-500" onchange="calculateSecurityScore()">
+                        <div>
+                            <p class="font-bold text-white text-sm sm:text-base">Canal de suporte direto salvo no celular de toda a gerência</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-0.5">O link e canal direto do especialista de negócios estão salvos e acessíveis para orientação imediata em qualquer incidente.</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Scorecard / Realtime Diagnosis -->
+                <div class="lg:col-span-4 sticky top-28 bg-surfaceDark/90 p-6 rounded-3xl border border-stone-700 shadow-xl space-y-6">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high text-stoneNeon"></i>
+                        Termômetro de Proteção
+                    </h3>
+
+                    <!-- Circular Progress Display -->
+                    <div class="flex flex-col items-center justify-center p-2">
+                        <div class="relative w-36 h-36 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-stone-950" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path id="scoreProgressCircle" class="text-stoneNeon transition-all duration-500 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <div class="absolute flex flex-col items-center">
+                                <span id="scorePercentage" class="text-3xl font-black text-white">0%</span>
+                                <span class="text-[10px] uppercase font-bold text-gray-400">Blindagem</span>
+                            </div>
+                        </div>
+                        <p id="scoreLabel" class="text-sm font-bold text-red-400 mt-3 text-center">Risco Elevado de Fraude</p>
+                    </div>
+
+                    <div id="scoreRecommendation" class="bg-black/40 p-4 rounded-xl border border-stone-800 text-xs text-gray-300 leading-relaxed">
+                        Marque as rotinas que sua equipe já pratica para descobrir a nota de segurança da sua empresa.
+                    </div>
+
+                    <div class="space-y-2">
+                        <button onclick="window.print()" class="w-full bg-stone-800 hover:bg-stone-700 text-white font-semibold text-xs py-3 rounded-xl border border-stone-600 flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-print"></i>
+                            <span>Imprimir Guia para o Balcão</span>
+                        </button>
+                        <a href="https://wa.me/5591984373797?text=Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o%20de%20seguran%C3%A7a%20personalizada%20para%20minha%20loja." target="_blank" rel="noopener noreferrer" class="w-full bg-stone-600 hover:bg-stone-500 text-white font-bold text-xs py-3 rounded-xl flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Pedir Auditoria Gratuita no WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Universal Rules / Decalogue of Financial Security -->
+        <section id="mandamentos" class="scroll-mt-24 space-y-8">
+            <div class="border-b border-stone-800 pb-6 text-center max-w-3xl mx-auto">
+                <span class="text-stone-400 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-shield"></i>
+                    Diretrizes Invioláveis
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">As 4 Regras de Ouro que NUNCA Devem Ser Quebradas</h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-2">
+                    Não importa qual banco, maquininha ou bandeira você utilize: se qualquer pessoa exigir um destes itens, <strong>trata-se de um golpe</strong>.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Rule 1 -->
+                <div class="bg-gradient-to-b from-stone-900/90 to-black p-6 rounded-2xl border border-red-900/40 relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center text-lg font-black mb-4">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-2">NUNCA forneça senhas ou tokens por telefone</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Nenhuma instituição financeira legítima tem permissão para solicitar senhas de 4/6 dígitos, senhas de acesso web ou códigos de SMS.</p>
+                </div>
+
+                <!-- Rule 2 -->
+                <div class="bg-gradient-to-b from-stone-900/90 to-black p-6 rounded-2xl border border-red-900/40 relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center text-lg font-black mb-4">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-2">NUNCA instale aplicativos a pedido de terceiros</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Softwares como AnyDesk ou TeamViewer entregam a tela e o controle do seu celular ou computador diretamente na mão do criminoso.</p>
+                </div>
+
+                <!-- Rule 3 -->
+                <div class="bg-gradient-to-b from-stone-900/90 to-black p-6 rounded-2xl border border-red-900/40 relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center text-lg font-black mb-4">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-2">NUNCA faça "Pix de Teste" ou estornos</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Não existe procedimento bancário que exija transferência de valores para contas de pessoas físicas a pretexto de "calibragem de sistema".</p>
+                </div>
+
+                <!-- Rule 4 -->
+                <div class="bg-gradient-to-b from-stone-900/90 to-black p-6 rounded-2xl border border-red-900/40 relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center text-lg font-black mb-4">
+                        <i class="fa-solid fa-person-military-pointing"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-2">NUNCA entregue aparelhos a técnicos surpresa</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Toda substituição de hardware deve ser previamente combinada e confirmada diretamente com o agente responsável pela sua conta.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Agent Direct Consultation & Support Banner -->
+        <section class="bg-gradient-to-r from-surfaceDark via-darkGreen to-stone-950 p-8 sm:p-12 rounded-3xl border border-stone-600/50 shadow-2xl relative overflow-hidden">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="space-y-4 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-stoneNeon/10 border border-stoneNeon/30 text-stoneNeon px-3 py-1 rounded-full text-xs font-bold">
+                        <i class="fa-solid fa-user-check"></i>
+                        <span>Atendimento Especializado & Consultoria Proativa</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white">Precisa de orientação ou sofreu uma tentativa de fraude?</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed max-w-xl">
+                        Nossos especialistas estão prontos para apoiar você e o seu comércio, independente de quem processe seus pagamentos hoje. Conte conosco para tirar dúvidas, analisar casos suspeitos e blindar sua operação.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                        <a href="https://wa.me/5591984373797?text=Ol%C3%A1!%20Gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20especializada%20de%20seguran%C3%A7a%20para%20meu%20estabelecimento." target="_blank" rel="noopener noreferrer" class="bg-stoneNeon hover:bg-stone-400 text-gray-950 font-extrabold text-sm px-6 py-3.5 rounded-xl flex items-center gap-2 transition-all transform hover:scale-105 shadow-lg shadow-stoneNeon/20">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Falar com o Especialista no WhatsApp</span>
+                        </a>
+                        <a href="https://wa.me/5591984373797?text=Ol%C3%A1!%20Gostaria%20de%20uma%20an%C3%A1lise%20preventiva%20para%20minha%20loja." target="_blank" rel="noopener noreferrer" class="bg-stone-900/90 hover:bg-stone-800 text-stone-200 border border-stone-700 font-bold text-sm px-5 py-3.5 rounded-xl flex items-center gap-2 transition-all">
+                            <i class="fa-solid fa-shield-halved text-stoneNeon"></i>
+                            <span>Solicitar Blindagem Gratuita</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-black/50 p-6 rounded-2xl border border-stone-700 text-center shrink-0 w-full sm:w-auto">
+                    <div class="w-16 h-16 rounded-full bg-stone-500/20 text-stoneNeon flex items-center justify-center text-3xl mx-auto mb-3">
+                        <i class="fa-solid fa-id-badge"></i>
+                    </div>
+                    <p class="text-xs uppercase text-gray-400 font-bold">Agente de Negócios</p>
+                    <p class="text-base font-extrabold text-white mt-0.5">Especialista de Segurança</p>
+                    <p class="text-xs text-stoneNeon font-semibold mt-1 flex items-center justify-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-stoneNeon animate-pulse"></span> Atendimento no WhatsApp
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-stone-800">
+                        <a href="https://wa.me/5591984373797?text=Ol%C3%A1!%20Gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20de%20seguran%C3%A7a." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-stone-300 hover:text-white font-bold underline">
+                            Iniciar Conversa Direta &raquo;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-stone-800/80 py-12 text-gray-400 text-xs mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-xl font-black tracking-tight text-white">stone</span>
+                    <span class="text-gray-400">|</span>
+                    <span class="font-medium text-stone-400">Ao lado do empreendedor brasileiro em cada desafio</span>
+                </div>
+                <div class="flex items-center gap-4 text-xs">
+                    <a href="https://wa.me/5591984373797" target="_blank" rel="noopener noreferrer" class="hover:text-stoneNeon transition-colors flex items-center gap-1">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Falar com o Especialista no WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-stone-900 pt-6 text-center text-gray-400">
+                &copy; 2026 Stone — Guia Proativo de Segurança da Informação. Material de utilidade pública para comerciantes e empreendedores.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: SOS Emergency Flow -->
+    <div id="emergencyModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-darkGreen border border-red-700 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8 animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal('emergencyModal')" class="absolute top-5 right-5 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-red-600/20 text-red-400 flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-shield-virus"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-black text-white">Protocolo SOS — Ação em Minutos</h3>
+                    <p class="text-red-400 text-xs font-bold uppercase tracking-wider">Passo a passo para conter o dano imediatamente</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-sm text-gray-200">
+                <div class="bg-black/40 p-4 rounded-xl border border-stone-800 flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-red-600 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                    <div>
+                        <h4 class="font-bold text-white">Desconecte a Internet Imediatamente</h4>
+                        <p class="text-xs text-gray-400 mt-1">Se instalou qualquer aplicativo estranho ou digitou dados em link suspeito, desligue o Wi-Fi e os dados móveis do aparelho para cortar o acesso remoto do invasor.</p>
+                    </div>
+                </div>
+
+                <div class="bg-black/40 p-4 rounded-xl border border-stone-800 flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-red-600 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                    <div>
+                        <h4 class="font-bold text-white">Troque Senhas em um Dispositivo Seguro</h4>
+                        <p class="text-xs text-gray-400 mt-1">Usando outro celular seguro e não comprometido, acesse o aplicativo do banco e altere imediatamente as senhas e bloqueie cartões.</p>
+                    </div>
+                </div>
+
+                <div class="bg-black/40 p-4 rounded-xl border border-stone-800 flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-red-600 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                    <div>
+                        <h4 class="font-bold text-white">Acione o Especialista Imediatamente</h4>
+                        <p class="text-xs text-gray-400 mt-1">Fale diretamente com nosso <strong>Agente Especialista pelo botão abaixo</strong> para receber orientação emergencial e ativar bloqueios.</p>
+                    </div>
+                </div>
+
+                <div class="bg-black/40 p-4 rounded-xl border border-stone-800 flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-red-600 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+                    <div>
+                        <h4 class="font-bold text-white">Registre o Boletim de Ocorrência Policial</h4>
+                        <p class="text-xs text-gray-400 mt-1">Registre o fato na Delegacia Eletrônica da Polícia Civil anexando prints, números de telefone chamadores e extratos bancários de destino.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-stone-800 flex items-center justify-between">
+                <a href="https://wa.me/5591984373797?text=EMERG%C3%8ANCIA:%20Sofri%20uma%20tentativa%20de%20fraude%20e%20preciso%20de%20apoio." target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i> Chamar o Especialista Agora
+                </a>
+                <button onclick="closeModal('emergencyModal')" class="bg-stone-800 hover:bg-stone-700 text-white font-semibold text-xs px-5 py-2.5 rounded-xl transition-colors">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Detailed Threat Drilldown -->
+    <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-darkGreen border border-stone-700 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative my-8 animate-in fade-in duration-200">
+            <button onclick="closeModal('detailModal')" class="absolute top-5 right-5 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="detailModalContent">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // --- Simulator Game Scenarios ---
+        const scenarios = [
+            {
+                id: 1,
+                title: "Ligação Telefônica da 'Central Antifraude'",
+                channel: "Chamada Telefônica com som de Call Center",
+                icon: "fa-phone-volume",
+                description: "Uma pessoa liga informando que uma compra de R$ 3.750,00 acabou de ser autorizada no seu cartão corporativo em outro estado. Para cancelar, ela pede que você baixe o 'RustDesk' ou 'AnyDesk' para que o técnico sincronize a segurança do seu celular.",
+                isLegit: false,
+                explanation: "GOLPE CLÁSSICO DE VISHING! Bancos e credenciadoras nunca solicitam a instalação de ferramentas de acesso remoto para cancelar compras. O golpista quer ver sua tela para capturar sua senha bancária.",
+                redFlags: ["Pedido de download de app remoto", "Urgência fabricada", "Alegação de transação fictícia"]
+            },
+            {
+                id: 2,
+                title: "Visita de Falso Agente / Técnico na Loja",
+                channel: "Presencial no Balcão",
+                icon: "fa-person-walking",
+                description: "Um indivíduo com crachá e camisa verde chega dizendo: 'Sou da equipe de campo, vim trocar sua máquina por um modelo 5G que não cobra taxa de Pix. Me entregue a máquina antiga'. Você não abriu nenhum chamado no aplicativo.",
+                isLegit: false,
+                explanation: "GOLPE DA TROCA DE MÁQUINA! Nenhuma empresa envia técnicos sem chamado aberto pelo cliente ou notificação oficial prévia. Entregar a máquina resultará na perda do aparelho e roubo do seu faturamento.",
+                redFlags: ["Visita não agendada", "Promessa milagrosa ('taxa zero')", "Exigência de levar o terminal embora"]
+            },
+            {
+                id: 3,
+                title: "Push Oficial no Aplicativo do Banco",
+                channel: "Dentro do App Oficial Instalado",
+                icon: "fa-bell",
+                description: "Você abre o aplicativo do seu banco (baixado direto da loja oficial) e visualiza no painel seguro de notificações um aviso sobre novos limites diários de Pix para o período noturno.",
+                isLegit: true,
+                explanation: "PROCEDIMENTO SEGURO E LEGÍTIMO! Avisos institucionais e operacionais dentro do ambiente logado do próprio aplicativo bancário oficial não configuram golpe, pois não solicitam senhas nem downloads externos.",
+                redFlags: ["Ambiente autenticado e seguro", "Nenhuma senha ou código foi solicitado"]
+            },
+            {
+                id: 4,
+                title: "E-mail com 'Desconto Especial em Boleto de Fornecedor'",
+                channel: "E-mail (financeiro@distribuidora-contato-urgente.net)",
+                icon: "fa-envelope",
+                description: "Você recebe um e-mail do seu suposto fornecedor de mercadorias avisando que a conta bancária da empresa mudou e enviando um novo boleto em anexo com 15% de desconto se quitado até as 12h via Pix.",
+                isLegit: false,
+                explanation: "GOLPE DO BOLETO ADULTERADO! O domínio do remetente é falso (.net em vez do oficial da empresa) e há forte indução por urgência com desconto agressivo para evitar que você confira com o vendedor.",
+                redFlags: ["Domínio de e-mail estranho", "Mudança repentina de conta bancária", "Desconto agressivo sob pressão de horário"]
+            },
+            {
+                id: 5,
+                title: "Comprovante de Pix Agendado pelo WhatsApp",
+                channel: "WhatsApp / Balcão",
+                icon: "fa-receipt",
+                description: "Um cliente faz um pedido de alto valor para retirada rápida. Ele envia o print de um comprovante no qual está escrito em letras miúdas 'Transferência Agendada para amanhã' e exige a entrega imediata das caixas.",
+                isLegit: false,
+                explanation: "GOLPE DO PIX AGENDADO! Agendamentos de Pix podem ser cancelados a qualquer instante pelo remetente antes da execução. A regra de ouro é: só libere produtos quando o valor constar no extrato da sua conta.",
+                redFlags: ["Comprovante com status 'Agendado'", "Pressão para liberação sem confirmação no extrato"]
+            },
+            {
+                id: 6,
+                title: "Contato com o Especialista / Agente de Negócios",
+                channel: "Canal Direto de WhatsApp do Agente",
+                icon: "fa-comments",
+                description: "Você aciona o seu Agente de Negócios pelo canal direto de WhatsApp para esclarecer uma dúvida sobre uma mensagem suspeita recebida por SMS. O especialista orienta você a nunca clicar no link e explica como bloquear o remetente com segurança.",
+                isLegit: true,
+                explanation: "CONSULTORIA E CONDUTA CORRETA! Manter contato direto com seu agente parceiro de confiança para tirar dúvidas antes de tomar qualquer ação protege seu caixa e neutraliza tentativas de golpe.",
+                redFlags: ["Canal direto de suporte", "Orientação preventiva sem solicitação de credenciais"]
+            }
+        ];
+
+        let currentScenarioIndex = 0;
+        let score = 0;
+
+        function loadScenario() {
+            const scn = scenarios[currentScenarioIndex];
+            document.getElementById('questionCounter').innerText = `Cenário ${currentScenarioIndex + 1} de ${scenarios.length}`;
+            
+            const area = document.getElementById('scenarioArea');
+            area.innerHTML = `
+                <div class="bg-stone-900/80 p-5 rounded-2xl border border-stone-700 space-y-3">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="bg-stone-800 text-stone-300 px-3 py-1 rounded-full font-bold flex items-center gap-1.5">
+                            <i class="fa-solid ${scn.icon} text-stoneNeon"></i> ${scn.channel}
+                        </span>
+                        <span class="text-gray-400">Analise o contexto</span>
+                    </div>
+                    <h4 class="text-lg sm:text-xl font-bold text-white">${scn.title}</h4>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed bg-black/40 p-4 rounded-xl border border-stone-800">${scn.description}</p>
+                </div>
+            `;
+
+            document.getElementById('decisionButtons').classList.remove('hidden');
+            document.getElementById('feedbackArea').classList.add('hidden');
+        }
+
+        function handleAnswer(userChoiceIsLegit) {
+            const scn = scenarios[currentScenarioIndex];
+            const isCorrect = (userChoiceIsLegit === scn.isLegit);
+
+            if (isCorrect) {
+                score += Math.round(100 / scenarios.length);
+                document.getElementById('currentScore').innerText = `${score} pts`;
+            }
+
+            const feedbackArea = document.getElementById('feedbackArea');
+            const feedbackHeader = document.getElementById('feedbackHeader');
+            const feedbackText = document.getElementById('feedbackText');
+
+            feedbackArea.classList.remove('hidden');
+            document.getElementById('decisionButtons').classList.add('hidden');
+
+            if (isCorrect) {
+                feedbackArea.className = "p-5 rounded-xl border border-stone-500 bg-stone-950/90 text-stone-100 space-y-3 animate-in fade-in";
+                feedbackHeader.innerHTML = `<i class="fa-solid fa-circle-check text-stoneNeon text-xl"></i> <span class="text-stoneNeon font-bold">Excelente! Resposta Correta!</span>`;
+            } else {
+                feedbackArea.className = "p-5 rounded-xl border border-red-600 bg-red-950/80 text-red-100 space-y-3 animate-in fade-in";
+                feedbackHeader.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-400 text-xl"></i> <span class="text-red-400 font-bold">Cuidado! Resposta Incorreta!</span>`;
+            }
+
+            let redFlagsHTML = scn.redFlags.map(rf => `<li class="text-xs text-gray-300">${rf}</li>`).join('');
+
+            feedbackText.innerHTML = `
+                <p class="font-medium mb-2">${scn.explanation}</p>
+                <div class="bg-black/50 p-3 rounded-lg border border-stone-800 text-xs">
+                    <strong class="text-stone-300">Sinais e Pontos de Análise:</strong>
+                    <ul class="list-disc list-inside mt-1 space-y-0.5">${redFlagsHTML}</ul>
+                </div>
+            `;
+        }
+
+        function nextScenario() {
+            if (currentScenarioIndex < scenarios.length - 1) {
+                currentScenarioIndex++;
+                loadScenario();
+            } else {
+                document.getElementById('gameContainer').classList.add('hidden');
+                const completedArea = document.getElementById('gameCompletedArea');
+                completedArea.classList.remove('hidden');
+                
+                let msg = "";
+                if (score >= 80) {
+                    msg = `Parabéns! Sua pontuação final foi de <strong>${score}/100 pontos</strong>. Sua percepção contra crimes financeiros e fraudes é excelente!`;
+                } else {
+                    msg = `Sua pontuação final foi de <strong>${score}/100 pontos</strong>. Recomendamos revisar os 4 pilares de segurança e compartilhar este guia com seus colaboradores.`;
+                }
+                document.getElementById('finalScoreText').innerHTML = msg;
+            }
+        }
+
+        function restartSimulator() {
+            currentScenarioIndex = 0;
+            score = 0;
+            document.getElementById('currentScore').innerText = "0 pts";
+            document.getElementById('gameCompletedArea').classList.add('hidden');
+            document.getElementById('gameContainer').classList.remove('hidden');
+            loadScenario();
+        }
+
+        // --- Threat Filters ---
+        function filterThreats(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-stone-600', 'text-white', 'active');
+                btn.classList.add('bg-stone-900/80', 'text-gray-300');
+            });
+            event.target.classList.add('bg-stone-600', 'text-white', 'active');
+            event.target.classList.remove('bg-stone-900/80', 'text-gray-300');
+
+            const cards = document.querySelectorAll('.threat-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // --- Detailed Threat Modal Data ---
+        const threatDetailsData = {
+            falso_suporte: {
+                title: "Engenharia Social Telefônica (Vishing & Acesso Remoto)",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> Criminosos utilizam tecnologia de mascaramento de número (spoofing) para que o identificador de chamadas do seu celular mostre um número idêntico ou parecido com o do seu banco. Eles simulam ruídos de telemarketing e afirmam que sua conta está sendo invadida.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li>Nenhum atendente bancário solicita instalação de AnyDesk, TeamViewer ou RustDesk.</li>
+                                <li>Se pedirem para você abrir o app do banco enquanto eles estão na linha, <strong>desligue o telefone na hora</strong>.</li>
+                                <li>Acione imediatamente o canal direto do seu Especialista de Negócios para validar a informação.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            troca_maquininha: {
+                title: "Substituição Fraudulenta de Terminal POS (Swap)",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> Criminosos atuam em duplas. Um deles distrai o operador de caixa (pedindo informações ou derrubando mercadorias) enquanto o comparsa substitui a maquininha do balcão por outra idêntica cadastrada em um CPF falso. Todas as vendas do dia passam a ser creditadas para a quadrilha.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li>Cole adesivos ou marcas secretas na parte inferior dos seus equipamentos.</li>
+                                <li>Confira se o nome da sua empresa aparece no visor do terminal antes de digitar o valor da venda.</li>
+                                <li>No fechamento do caixa, confira o número de série físico da máquina com o relatório de sistema.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            falso_tecnico: {
+                title: "Golpe do Falso Prestador / Visita Técnica Não Agendada",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> Indivíduos chegam com uniforme, crachá falso e pastas corporativas afirmando que foram enviados para 'troca de chip', 'recolhimento de equipamento para atualização' ou 'calibragem da rede'.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li><strong>Nunca entregue nenhum equipamento sem que você tenha feito o pedido prévio.</strong></li>
+                                <li>Mesmo que a pessoa pareça bem vestida e educada, exija a ordem de serviço no aplicativo.</li>
+                                <li>Na dúvida, acione na mesma hora o canal do seu Especialista via WhatsApp.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            boleto_adulterado: {
+                title: "Adulteração de Boletos e Falsos Canais de Cobrança",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> Criminosos monitoram e-mails de empresas ou compram dados vazados para emitir faturas falsas com o logotipo de fornecedores conhecidos. O código de barras é direcionado para contas de laranjas ou instituições de pagamento sem ligação com o credor real.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li>Antes de confirmar o pagamento no internet banking, <strong>leia o CNPJ e a Razão Social do Beneficiário Final</strong>.</li>
+                                <li>Se o beneficiário for uma pessoa física ou empresa desconhecida, cancele a operação.</li>
+                                <li>Adote o DDA (Débito Direto Autorizado) para consultar boletos emitidos oficialmente contra seu CNPJ.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            qr_code_adulterado: {
+                title: "QR Code Pix Físico Sobreposto no Balcão",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> Criminosos colam um adesivo vinílico contendo o QR Code Pix de terceiros por cima da placa acrílica da loja. O cliente lê o código e paga, mas o valor nunca cai na conta da empresa.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li>Dê preferência absoluta à geração de QR Code Pix dinâmico diretamente na tela da sua Maquininha.</li>
+                                <li>Passe a mão diariamente nas placas para checar se há adesivos colados por cima.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            pix_agendado: {
+                title: "Golpe do Comprovante Falso e Pix Agendado",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> O comprador agenda uma transferência Pix para uma data futura, gera o comprovante em PDF e cancela o agendamento minutos depois no aplicativo dele. Em outros casos, usam geradores de comprovantes falsos no celular.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li><strong>Nunca confie em prints de celular apresentados pelo cliente.</strong></li>
+                                <li>Só libere pedidos após constatar o crédito real no extrato da sua conta corrente ou no alerta da maquininha.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            mao_fantasma: {
+                title: "Malware 'Mão Fantasma' e Aplicativos Maliciosos",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> Ao clicar em links recebidos por SMS ('Sua encomenda está retida' ou 'Atualize sua conta'), o usuário baixa um arquivo APK malicioso. O invasor ganha controle remoto da tela do smartphone e movimenta a conta durante a madrugada.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li>Nunca instale arquivos enviados por WhatsApp ou links externos fora da Google Play / App Store.</li>
+                                <li>Reduza os limites de transferência Pix no período noturno (das 20h às 06h).</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            whatsapp_clonado: {
+                title: "Sequestro de WhatsApp Comercial e Extorsão",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> O fraudador liga fingindo ser de um portal de anúncios ou fornecedor e solicita um código de 6 dígitos que chegou no seu SMS. Esse código é a chave de ativação do seu WhatsApp, que é transferido para o aparelho do golpista para pedir dinheiro aos seus contatos.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li>Ative imediatamente a <strong>Confirmação em Duas Etapas</strong> no WhatsApp (Configurações > Conta > Confirmação em duas etapas).</li>
+                                <li>Nunca repasse nenhum código de SMS a terceiros.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            phishing_google: {
+                title: "Phishing via Anúncios Patrocinados no Google",
+                body: `
+                    <div class="space-y-4 text-sm text-gray-200">
+                        <p><strong>Modus Operandi:</strong> Ao digitar o nome do banco no buscador, o primeiro resultado que aparece é um anúncio patrocinado comprado por golpistas com visual idêntico ao portal oficial, feito para roubar senhas e chaves de acesso.</p>
+                        <div class="bg-stone-900 p-4 rounded-xl border border-stone-700">
+                            <h5 class="text-stoneNeon font-bold text-xs uppercase mb-2">A Regra Correta:</h5>
+                            <ul class="list-disc list-inside space-y-1.5 text-xs text-gray-300">
+                                <li>Nunca faça login clicando em links patrocinados.</li>
+                                <li>Digite a URL oficial na barra de endereços e salve nos favoritos do navegador.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function showThreatDetail(key) {
+            const item = threatDetailsData[key];
+            if (!item) return;
+
+            const content = document.getElementById('detailModalContent');
+            content.innerHTML = `
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-stone-800 text-stoneNeon flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white leading-tight">${item.title}</h3>
+                </div>
+                ${item.body}
+                <div class="mt-6 pt-4 border-t border-stone-800 flex items-center justify-between">
+                    <a href="https://wa.me/5591984373797?text=Gostaria%20de%20tirar%20d%C3%BAvidas%20sobre:%20${encodeURIComponent(item.title)}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-stoneNeon hover:underline flex items-center gap-1">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Tirar dúvida no WhatsApp
+                    </a>
+                    <button onclick="closeModal('detailModal')" class="bg-stone-600 hover:bg-stone-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition-colors">Fechar</button>
+                </div>
+            `;
+            openModal('detailModal');
+        }
+
+        // --- Checklist Logic & Score Calculation ---
+        function calculateSecurityScore() {
+            const items = document.querySelectorAll('.checklist-item');
+            let checkedCount = 0;
+            items.forEach(item => {
+                if (item.checked) checkedCount++;
+            });
+
+            const percentage = Math.round((checkedCount / items.length) * 100);
+            document.getElementById('scorePercentage').innerText = `${percentage}%`;
+            
+            const circle = document.getElementById('scoreProgressCircle');
+            circle.setAttribute('stroke-dasharray', `${percentage}, 100`);
+
+            const label = document.getElementById('scoreLabel');
+            const recommendation = document.getElementById('scoreRecommendation');
+
+            if (percentage === 100) {
+                circle.setAttribute('class', 'text-stoneNeon transition-all duration-500 ease-out');
+                label.innerText = "Blindagem Máxima Ativada! 🛡️";
+                label.className = "text-sm font-bold text-stoneNeon mt-3 text-center";
+                recommendation.innerHTML = "Excelente! Sua empresa segue rigorosamente os padrões de segurança do mercado. Mantenha seus colaboradores sempre vigilantes.";
+            } else if (percentage >= 60) {
+                circle.setAttribute('class', 'text-yellow-400 transition-all duration-500 ease-out');
+                label.innerText = "Proteção Moderada ⚠️";
+                label.className = "text-sm font-bold text-yellow-400 mt-3 text-center";
+                recommendation.innerHTML = "Seu negócio já adota boas práticas, mas ainda possui brechas que podem ser exploradas por criminosos. Complete os itens restantes.";
+            } else {
+                circle.setAttribute('class', 'text-red-500 transition-all duration-500 ease-out');
+                label.innerText = "Vulnerabilidade Elevada 🚨";
+                label.className = "text-sm font-bold text-red-500 mt-3 text-center";
+                recommendation.innerHTML = "Atenção: Seu estabelecimento está exposto a golpes comuns de balcão e engenharia social. Fale com nosso especialista para blindar sua operação.";
+            }
+        }
+
+        // --- Modals Management ---
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal('emergencyModal');
+                closeModal('detailModal');
+            }
+        });
+
+        document.querySelectorAll('#emergencyModal, #detailModal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // --- Mobile Menu Toggle ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.onload = function() {
+            loadScenario();
+            calculateSecurityScore();
+        };
+    </script>
+</body>
+</html>
